@@ -881,4 +881,28 @@ footer p {
     .section {
         padding: 4rem 0;
     }
+    
+    .logo {
+        font-size: 1.1rem;
+        letter-spacing: 0px;
+    }
+    
+    .logo img {
+        height: 30px !important;
+    }
+    
+    .footer-logo {
+        font-size: 1.3rem;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .contact-item a {
+        word-break: break-all;
+        font-size: 0.95rem;
+    }
 }
