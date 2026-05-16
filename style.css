@@ -839,8 +839,21 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    /* --- Navegación --- */
     .nav-container {
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 0px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .logo img {
+        height: 28px !important;
     }
     
     .nav-links {
@@ -865,34 +878,121 @@ footer p {
         display: block;
     }
     
+    /* --- Hero --- */
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 1.5rem 4rem;
+        text-align: center;
+    }
+    
+    .hero-content {
+        width: 100%;
+    }
+    
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 0.5rem;
     }
     
     .hero-buttons {
         flex-direction: column;
+        align-items: center;
         width: 100%;
+        gap: 1rem;
     }
     
+    .hero-buttons .btn {
+        width: 80%;
+        text-align: center;
+    }
+    
+    /* --- Secciones generales --- */
+    .section {
+        padding: 3.5rem 0;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    /* --- Nosotros --- */
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .about-image-placeholder, .about-image {
+        height: 280px;
+        order: -1;
+    }
+    
+    .about-image img {
+        border-radius: 8px;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    /* --- Habilidades --- */
     .skills-grid {
         grid-template-columns: 1fr;
     }
     
-    .section {
-        padding: 4rem 0;
+    .skills-category {
+        padding: 1.5rem;
     }
     
-    .logo {
-        font-size: 1.1rem;
-        letter-spacing: 0px;
+    /* --- Portafolio --- */
+    .portfolio-tabs {
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
     
-    .logo img {
-        height: 30px !important;
+    .tab-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
     }
     
-    .footer-logo {
-        font-size: 1.3rem;
+    .photo-categories-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* --- Beneficios --- */
+    .benefits-subtitle {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* --- Contacto --- */
+    .contact-subtitle {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .contact-wrapper {
+        padding: 1.5rem;
+        gap: 2.5rem;
     }
     
     .contact-item {
@@ -903,6 +1003,43 @@ footer p {
     
     .contact-item a {
         word-break: break-all;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-form .btn {
+        align-self: center;
+        width: 100%;
+    }
+    
+    /* --- Footer --- */
+    .footer-logo {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .footer-logo img {
+        height: 60px !important;
+    }
+    
+    footer p {
+        font-size: 0.85rem;
+        padding: 0 1rem;
+    }
+    
+    /* --- Modal / Carrusel --- */
+    .modal-content {
+        width: 95%;
+        height: 60vh;
+    }
+    
+    .prev, .next {
+        padding: 10px;
+        font-size: 22px;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 18px;
+        font-size: 32px;
     }
 }
