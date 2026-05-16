@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoronelShots | Photography & Development</title>
+    <meta name="description" content="Portafolio profesional de CoronelShots. Fotografía y Desarrollo de Software.">
+    <!-- Google Fonts: Montserrat (Elegante para títulos) e Inter (Limpia para textos) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navegación -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <!-- Incrementé el tamaño de la imagen -->
+                <img src="logo.png" alt="CoronelShots Logo" style="height: 80px;">
+                <span>CORONEL<span style="font-weight: 300;">SHOTS</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Capturando momentos, <br> construyendo soluciones.</h1>
+            <p>La evolución del mundo digital ahora la puedes controlar tú.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">Ver nuestro trabajo</a>
+                <a href="#contact" class="btn btn-outline">Contáctanos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Nosotros -->
+    <section id="about" class="section">
+        <div class="container fade-in">
+            <h2 class="section-title">Nosotros</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>CoronelShots</strong>, fundado por <strong>José Antonio Coronel Martínez</strong>, nace
+                        de la unión de dos mundos aparentemente distintos pero profundamente complementarios: el arte
+                        visual de la fotografía y la lógica estructurada del desarrollo de software.</p>
+                    <p>En el <strong>ámbito del desarrollo</strong>, nos enfocamos en construir código limpio, eficiente
+                        y soluciones escalables que resuelvan problemas reales. En el <strong>ámbito
+                            fotográfico</strong>, buscamos capturar la esencia, la luz y la emoción de cada momento,
+                        creando imágenes que cuenten una historia.</p>
+                    <p>Esta combinación única nos permite abordar cada proyecto tecnológico con un agudo sentido de la
+                        estética y el diseño, y afrontar cada sesión fotográfica con una planificación técnica y
+                        meticulosa. Nuestro objetivo principal siempre es entregar resultados excepcionales.</p>
+                </div>
+                <div class="about-image" style="flex: 1; min-height: 400px;">
+                    <img src="perfil.jpg" alt="José Antonio Coronel - CoronelShots"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 15px 30px rgba(92, 75, 51, 0.15);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="section bg-light">
+        <div class="container fade-in">
+            <h2 class="section-title">Tecnologías y Herramientas</h2>
+            <div class="skills-grid">
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Desarrollo de Software</h3>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">C</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Vue</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3><i class="fas fa-camera-retro"></i> Fotografía y Edición</h3>
+                    <div class="tags">
+                        <span class="tag">Adobe Lightroom</span>
+                        <span class="tag">Adobe Photoshop</span>
+                        <span class="tag">Adobe Premiere</span>
+                        <span class="tag">CapCut</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Nuestro Trabajo</h2>
+
+            <!-- Controles para alternar vista -->
+            <div class="portfolio-tabs fade-in">
+                <button class="tab-btn active" data-target="photo">Fotografía</button>
+                <button class="tab-btn" data-target="dev">Desarrollo</button>
+            </div>
+
+            <!-- Galería de Fotografía (Categorías) -->
+            <div class="portfolio-gallery fade-in visible" id="gallery-photo">
+                <div class="photo-categories-grid">
+
+                    <div class="category-card" onclick="openModal('social')">
+                        <div class="category-img-placeholder" style="padding: 0;">
+                            <img src="fotos/social/portada.jpg" alt="Fotografía Social"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="category-info">
+                            <h3>Social</h3>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="openModal('retrato')">
+                        <div class="category-img-placeholder" style="padding: 0;">
+                            <img src="fotos/retrato/portada.jpg" alt="Fotografía de Retrato"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="category-info">
+                            <h3>Retrato</h3>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="openModal('producto')">
+                        <div class="category-img-placeholder" style="padding: 0;">
+                            <img src="fotos/producto/portada.jpg" alt="Fotografía de Producto"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="category-info">
+                            <h3>Producto</h3>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="openModal('especial')">
+                        <div class="category-img-placeholder" style="padding: 0;">
+                            <img src="fotos/especial/portada.jpg" alt="Proyectos Especiales"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="category-info">
+                            <h3>Especial</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Galería de Desarrollo de Software (Tarjetas) -->
+            <div class="portfolio-gallery hidden" id="gallery-dev">
+                <div class="projects-grid">
+
+                    <div class="project-card">
+                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
+                            <img src="proyectos/proyecto1.jpg" alt="Gestor del Ciclo Menstrual"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-info">
+                            <h3>MiAn</h3>
+                            <p>Aplicación diseñada en Vue.js para ayudar a las usuarias a monitorear su ciclo menstrual
+                                con predicciones y métricas de salud detalladas.</p>
+                            <div class="project-tech">
+                                <span>Vue.js</span><span>JavaScript</span><span>HTML/CSS</span><span>SQL</span>
+                            </div>
+                            <div class="project-links" style="margin-top: 15px;">
+                                <a href="https://mi-an.vercel.app" target="_blank"
+                                    style="color: var(--accent); font-weight: 600; text-decoration: none;"><i
+                                        class="fas fa-external-link-alt"></i> Link al proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
+                            <img src="proyectos/proyecto2.jpg" alt="MoneyGestor"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-info">
+                            <h3>MoneyGestor</h3>
+                            <p>Progressive Web App (PWA) desarrollada para llevar un control eficiente de los gastos y
+                                préstamos dentro del hogar, permitiendo un acceso rápido desde cualquier dispositivo.
+                            </p>
+                            <div class="project-tech">
+                                <span>Vue 3</span><span>Vite</span><span>PWA</span><span>SQL</span>
+                            </div>
+                            <div class="project-links" style="margin-top: 15px;">
+                                <a href="https://money-gestor.vercel.app" target="_blank"
+                                    style="color: var(--accent); font-weight: 600; text-decoration: none;"><i
+                                        class="fas fa-external-link-alt"></i> Ver Proyecto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
+                            <img src="proyectos/proyecto3.jpg" alt="Análisis de Datos"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-info">
+                            <h3>Análisis de Datos Financieros</h3>
+                            <p>Plataforma multiplataforma desarrollada para un fondo de inversión, diseñada para el
+                                análisis complejo de datos financieros y optimización en la toma de decisiones.</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>SQL</span><span>Vue</span><span>Flutter</span><span>JavaScript</span><span>HTML/CSS</span>
+                            </div>
+                            <div class="project-links" style="margin-top: 15px;">
+                                <span style="color: var(--text-secondary); font-weight: 600;"><i
+                                        class="fas fa-lock"></i> Proyecto Privado / Confidencial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Beneficios / Presencia Digital -->
+    <section id="benefits" class="section bg-light">
+        <div class="container fade-in">
+            <h2 class="section-title">El Valor de la Digitalización</h2>
+            <p class="benefits-subtitle">En el mundo actual, si tu negocio no está en internet, estás perdiendo
+                clientes. Una presencia digital profesional ya no es un lujo, es una necesidad.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Presencia 24/7</h3>
+                    <p>Una página web es tu sucursal abierta todo el año. Permite que tus clientes te encuentren en
+                        Google, conozcan tus servicios y te contacten en cualquier momento del día.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Software a Medida</h3>
+                    <p>Un sistema de software propio automatiza tareas, reduce errores humanos y optimiza las ventas de
+                        tu negocio. Te permite enfocarte en hacer crecer tu empresa.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-camera-retro"></i>
+                    <h3>Imagen de Confianza</h3>
+                    <p>Las personas compran con los ojos. Fotografías de alta calidad de tus productos o servicios
+                        transmiten profesionalismo y te diferencian de tu competencia al instante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="section">
+        <div class="container fade-in">
+            <h2 class="section-title">Contacto</h2>
+            <p class="contact-subtitle">¿Tienes un proyecto de software en mente o requieres una sesión fotográfica?
+                ¡Contáctanos y hagámoslo realidad!</p>
+
+            <div class="contact-wrapper">
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <a href="mailto:coroneljoseantonio06@gmail.com">coroneljoseantonio06@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Teléfono / WhatsApp</h4>
+                            <a href="https://wa.me/529514616417" target="_blank">951 461 6417</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <a href="https://instagram.com/coronelshots06" target="_blank">@coronelshots06</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario (Usando JavaScript para abrir tu cliente de correo) -->
+                <form class="contact-form" id="contactForm">
+                    <input type="text" id="form-name" placeholder="Tu Nombre" required>
+                    <input type="email" id="form-email" placeholder="Tu Correo" required>
+                    <textarea id="form-message" rows="5" placeholder="¿En qué te puedo ayudar?" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#home" class="footer-logo"
+                style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="CoronelShots Logo" style="height: 90px; margin: 0 auto; display: block;">
+                <span>CORONEL<span style="font-weight: 300;">SHOTS</span></span>
+            </a>
+            <p>&copy; <span id="year"></span> José Antonio Coronel. Todos los derechos reservados.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com/coronelshots06" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:coroneljoseantonio06@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/529514616417" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Carruseles de Fotos -->
+    <div id="photoModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <!-- Carrusel Social -->
+            <div id="carousel-social" class="carousel-container hidden">
+                <div class="carousel-slide active"><img src="fotos/social/portada.jpg" alt="Social Portada"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/1.jpg" alt="Social 1"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/2.jpg" alt="Social 2"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/3.jpg" alt="Social 3"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/4.jpg" alt="Social 4"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/5.jpg" alt="Social 5"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/social/6.jpg" alt="Social 6"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <a class="prev" onclick="changeSlide(-1, 'social')">&#10094;</a>
+                <a class="next" onclick="changeSlide(1, 'social')">&#10095;</a>
+            </div>
+
+            <!-- Carrusel Retrato -->
+            <div id="carousel-retrato" class="carousel-container hidden">
+                <div class="carousel-slide active"><img src="fotos/retrato/portada.jpg" alt="Retrato Portada"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/1.jpg" alt="Retrato 1"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/2.jpg" alt="Retrato 2"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/3.jpg" alt="Retrato 3"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/4.jpg" alt="Retrato 4"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/5.jpg" alt="Retrato 5"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/retrato/6.jpg" alt="Retrato 6"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <a class="prev" onclick="changeSlide(-1, 'retrato')">&#10094;</a>
+                <a class="next" onclick="changeSlide(1, 'retrato')">&#10095;</a>
+            </div>
+
+            <!-- Carrusel Producto -->
+            <div id="carousel-producto" class="carousel-container hidden">
+                <div class="carousel-slide active">
+                    <img src="fotos/producto/portada.jpg" alt="Producto Portada"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/1.jpg" alt="Producto 1"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/2.jpg" alt="Producto 2"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/3.jpg" alt="Producto 3"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/4.jpg" alt="Producto 4"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/5.jpg" alt="Producto 5"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="fotos/producto/6.jpg" alt="Producto 6"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                </div>
+                <a class="prev" onclick="changeSlide(-1, 'producto')">&#10094;</a>
+                <a class="next" onclick="changeSlide(1, 'producto')">&#10095;</a>
+            </div>
+
+            <!-- Carrusel Especial -->
+            <div id="carousel-especial" class="carousel-container hidden">
+                <div class="carousel-slide active"><img src="fotos/especial/portada.jpg" alt="Especial Portada"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/1.jpg" alt="Especial 1"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/2.jpg" alt="Especial 2"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/3.jpg" alt="Especial 3"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/4.jpg" alt="Especial 4"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/5.jpg" alt="Especial 5"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <div class="carousel-slide"><img src="fotos/especial/6.jpg" alt="Especial 6"
+                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+                <a class="prev" onclick="changeSlide(-1, 'especial')">&#10094;</a>
+                <a class="next" onclick="changeSlide(1, 'especial')">&#10095;</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
