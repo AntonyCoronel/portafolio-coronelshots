@@ -1,193 +1,280 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Actualizar el año en el footer automáticamente
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const sinMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // 2. Lógica para el Menú Hamburguesa (Mobile)
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-links a');
+$('#anio').textContent = new Date().getFullYear();
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Cambiar el ícono (barras a 'X')
-            const icon = hamburger.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+/* Navegación */
+const nav = $('#nav');
+const navBoton = $('#navBoton');
+const marcarNav = () => nav.classList.toggle('fija', scrollY > 40);
+addEventListener('scroll', marcarNav, { passive: true });
+marcarNav();
 
-        // Cerrar menú al hacer clic en un enlace (útil en móviles)
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = hamburger.querySelector('i');
-                if(icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
-    }
+function menu(abrir) {
+  nav.classList.toggle('abierta', abrir);
+  navBoton.setAttribute('aria-expanded', abrir);
+  $('span', navBoton).textContent = abrir ? 'Cerrar' : 'Menú';
+  document.body.style.overflow = abrir ? 'hidden' : '';
+}
+navBoton.addEventListener('click', () => menu(!nav.classList.contains('abierta')));
+$$('#navLinks a').forEach(a => a.addEventListener('click', () => menu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('abierta')) menu(false); });
 
-    // 3. Efecto de la barra de navegación al hacer scroll (se hace más delgada)
-    const navbar = document.getElementById('navbar');
-    const navContainer = document.querySelector('.nav-container');
+const enlaces = $$('#navLinks a');
+const seccionActual = new IntersectionObserver(entradas => {
+  entradas.forEach(e => {
+    if (!e.isIntersecting) return;
+    enlaces.forEach(a => a.classList.toggle('actual', a.hash === '#' + e.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+['inicio', 'fotografia', 'mayka', 'video', 'software', 'nosotros', 'servicios', 'contacto']
+  .forEach(id => seccionActual.observe(document.getElementById(id)));
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 15px rgba(92, 75, 51, 0.08)';
-            navContainer.style.padding = '1rem 2rem';
-        } else {
-            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-            navContainer.style.padding = '1.5rem 2rem';
-        }
-    });
-
-    // 4. Lógica de Tabs para la sección de Portafolio
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const galleries = document.querySelectorAll('.portfolio-gallery');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Quitar clase 'active' a todos los botones
-            tabBtns.forEach(b => b.classList.remove('active'));
-            // Agregar clase 'active' al botón seleccionado
-            btn.classList.add('active');
-
-            const targetId = btn.getAttribute('data-target');
-            
-            // Ocultar todas las galerías
-            galleries.forEach(gallery => {
-                gallery.classList.add('hidden');
-                gallery.classList.remove('visible'); // Remover clase de animación
-            });
-
-            // Mostrar la galería correspondiente
-            const targetGallery = document.getElementById(`gallery-${targetId}`);
-            if (targetGallery) {
-                targetGallery.classList.remove('hidden');
-                
-                // Pequeño retardo para que la transición CSS funcione correctamente
-                // al quitar el display:none
-                setTimeout(() => {
-                    targetGallery.classList.add('visible');
-                }, 50);
-            }
-        });
-    });
-
-    // 5. Animación "Fade-In" al hacer scroll (Scroll Reveal)
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    // Configuración del observer (cuándo se dispara la animación)
-    const observerOptions = {
-        threshold: 0.1, // Se dispara cuando el 10% del elemento es visible
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Dejar de observar una vez que ya apareció
-            }
-        });
-    }, observerOptions);
-
-    fadeElements.forEach(el => {
-        observer.observe(el);
-    });
-
-    // 6. Lógica del formulario de contacto (Usando Mailto por JavaScript)
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evitamos que la página se recargue
-            
-            const nombre = document.getElementById('form-name').value;
-            const correo = document.getElementById('form-email').value;
-            const mensaje = document.getElementById('form-message').value;
-            
-            // Construimos el enlace para abrir la aplicación de correo
-            const subject = encodeURIComponent(`Nuevo mensaje de ${nombre} desde el portafolio`);
-            const body = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}`);
-            
-            // Abrimos el cliente de correo predeterminado del usuario
-            window.location.href = `mailto:coroneljoseantonio06@gmail.com?subject=${subject}&body=${body}`;
-        });
-    }
-});
-
-// ==========================================
-// 7. Lógica Global del Modal y Carruseles
-// ==========================================
-let currentSlides = {
-    'social': 0,
-    'retrato': 0,
-    'producto': 0,
-    'especial': 0
-};
-
-window.openModal = function(categoryId) {
-    const modal = document.getElementById('photoModal');
-    const carousels = document.querySelectorAll('.carousel-container');
-    
-    // Ocultar todos los carruseles
-    carousels.forEach(c => c.classList.add('hidden'));
-    
-    // Mostrar el carrusel clickeado
-    const targetCarousel = document.getElementById(`carousel-${categoryId}`);
-    if (targetCarousel) {
-        targetCarousel.classList.remove('hidden');
-        showSlide(currentSlides[categoryId], categoryId);
-    }
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevenir scroll de la página
-};
-
-window.closeModal = function() {
-    const modal = document.getElementById('photoModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Restaurar scroll
-};
-
-window.changeSlide = function(step, categoryId) {
-    currentSlides[categoryId] += step;
-    showSlide(currentSlides[categoryId], categoryId);
-};
-
-function showSlide(index, categoryId) {
-    const carousel = document.getElementById(`carousel-${categoryId}`);
-    if (!carousel) return;
-
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    if (slides.length === 0) return;
-    
-    if (index >= slides.length) { currentSlides[categoryId] = 0; }
-    if (index < 0) { currentSlides[categoryId] = slides.length - 1; }
-    
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[currentSlides[categoryId]].classList.add('active');
+/* Portada: las fotos cambian solas */
+const heroFotos = $$('#heroFotos img');
+if (!sinMovimiento && heroFotos.length > 1) {
+  let i = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    const sig = (i + 1) % heroFotos.length;
+    if (!heroFotos[sig].complete) { heroFotos[sig].loading = 'eager'; return; }
+    heroFotos[i].classList.remove('activa');
+    heroFotos[sig].classList.add('activa');
+    $('#heroDato').textContent = heroFotos[sig].dataset.pie;
+    i = sig;
+  }, 6500);
 }
 
-// Cerrar modal al hacer clic fuera del contenido
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('photoModal');
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
+/* Galería */
+const fotos = window.GALERIA || [];
+const galeria = $('#galeria');
+let visibles = fotos;
+
+const verMas = $('#verMas');
+const INICIALES = 18;
+
+function pintarGaleria(cat, completa = false) {
+  const todas = cat === 'todo' ? ordenMezclado : fotos.filter(f => f.cat === cat);
+  visibles = cat === 'todo' && !completa ? todas.slice(0, INICIALES) : todas;
+  verMas.hidden = visibles.length === todas.length;
+  verMas.textContent = `Ver las ${todas.length} fotos`;
+  galeria.innerHTML = '';
+  visibles.forEach((f, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'foto';
+    b.style.setProperty('--ar', (f.w / f.h).toFixed(3));
+    b.setAttribute('aria-label', 'Ampliar: ' + f.alt);
+    const img = new Image();
+    img.alt = f.alt;
+    img.width = f.w;
+    img.height = f.h;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('load', () => img.classList.add('lista'));
+    img.src = `img/galeria/${f.id}-m.webp`;
+    b.append(img);
+    if (f.exif) {
+      const s = document.createElement('span');
+      s.textContent = f.exif;
+      b.append(s);
     }
+    b.addEventListener('click', () => abrirVisor(i, b));
+    galeria.append(b);
+  });
+}
+
+/* En "Todo" las categorías se intercalan para que se vea la variedad */
+const porCat = {};
+fotos.forEach(f => (porCat[f.cat] ||= []).push(f));
+const ordenMezclado = [];
+const colas = Object.values(porCat).map(c => [...c]);
+while (colas.some(c => c.length)) colas.forEach(c => { if (c.length) ordenMezclado.push(c.shift()); });
+
+$$('#filtros button').forEach(b => {
+  const cat = b.dataset.cat;
+  const n = cat === 'todo' ? fotos.length : (porCat[cat] || []).length;
+  const sup = document.createElement('sup');
+  sup.textContent = n;
+  b.append(sup);
+  b.addEventListener('click', () => {
+    $$('#filtros button').forEach(o => o.setAttribute('aria-pressed', o === b));
+    pintarGaleria(cat);
+  });
+});
+verMas.addEventListener('click', () => {
+  const n = visibles.length;
+  pintarGaleria('todo', true);
+  galeria.children[n].focus({ preventScroll: true });
+});
+pintarGaleria('todo');
+
+/* Visor */
+const visor = $('#visor');
+const vImg = new Image();
+$('figure', visor).prepend(vImg);
+let vIndice = 0;
+let vOrigen = null;
+
+function mostrar(i) {
+  vIndice = (i + visibles.length) % visibles.length;
+  const f = visibles[vIndice];
+  vImg.style.aspectRatio = `${f.w} / ${f.h}`;
+  vImg.src = `img/galeria/${f.id}.webp`;
+  vImg.alt = f.alt;
+  $('#vAlt').textContent = f.alt;
+  $('#vExif').textContent = f.exif;
+  [1, -1].forEach(d => {
+    const v = visibles[(vIndice + d + visibles.length) % visibles.length];
+    new Image().src = `img/galeria/${v.id}.webp`;
+  });
+}
+function abrirVisor(i, origen) {
+  vOrigen = origen;
+  mostrar(i);
+  visor.showModal();
+  document.body.style.overflow = 'hidden';
+}
+visor.addEventListener('close', () => {
+  document.body.style.overflow = '';
+  vImg.removeAttribute('src');
+  if (vOrigen) vOrigen.focus({ preventScroll: true });
+});
+$('#vCerrar').addEventListener('click', () => visor.close());
+$('#vAnt').addEventListener('click', () => mostrar(vIndice - 1));
+$('#vSig').addEventListener('click', () => mostrar(vIndice + 1));
+visor.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') mostrar(vIndice - 1);
+  if (e.key === 'ArrowRight') mostrar(vIndice + 1);
+});
+visor.addEventListener('click', e => { if (e.target === visor || e.target.tagName === 'FIGURE') visor.close(); });
+let toqueX = null;
+visor.addEventListener('touchstart', e => { toqueX = e.changedTouches[0].clientX; }, { passive: true });
+visor.addEventListener('touchend', e => {
+  if (toqueX === null) return;
+  const d = e.changedTouches[0].clientX - toqueX;
+  if (Math.abs(d) > 50) mostrar(vIndice + (d < 0 ? 1 : -1));
+  toqueX = null;
+}, { passive: true });
+
+/* Video: solo se descarga y reproduce el que está en pantalla */
+const ahorro = navigator.connection && navigator.connection.saveData;
+const clips = $$('.clip').map(fig => {
+  const nombre = fig.dataset.video;
+  const marco = document.createElement('div');
+  marco.className = 'clip-marco';
+  const v = document.createElement('video');
+  v.poster = `img/video/${nombre}.webp`;
+  v.src = `img/video/${nombre}.mp4`;
+  v.muted = true;
+  v.loop = true;
+  v.playsInline = true;
+  v.preload = 'none';
+  v.setAttribute('aria-label', $('strong', fig).textContent);
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'clip-sonido';
+  const pintar = () => {
+    b.innerHTML = `<svg class="i"><use href="#${v.muted ? 'i-mudo' : 'i-sonido'}"/></svg>`;
+    b.setAttribute('aria-label', v.muted ? 'Activar sonido' : 'Quitar sonido');
+  };
+  pintar();
+  b.addEventListener('click', () => {
+    const activar = v.muted;
+    clips.forEach(c => { c.v.muted = true; c.pintar(); });
+    v.muted = !activar;
+    pintar();
+    v.play().catch(() => {});
+  });
+  marco.append(v, b);
+  fig.prepend(marco);
+  return { v, pintar };
+});
+if (!sinMovimiento && !ahorro) {
+  const reproducir = new IntersectionObserver(entradas => {
+    entradas.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+  }, { threshold: .7 });
+  clips.forEach(c => reproducir.observe(c.v));
+} else {
+  clips.forEach(c => { c.v.controls = true; });
+}
+
+/* Carruseles de los proyectos */
+$$('.carrusel').forEach(c => {
+  const pista = $('.carrusel-pista', c);
+  const total = pista.children.length;
+  const actual = () => Math.round(pista.scrollLeft / (pista.clientWidth || 1));
+  const ir = i => pista.scrollTo({ left: i * pista.clientWidth, behavior: sinMovimiento ? 'auto' : 'smooth' });
+  const boton = (clase, icono, texto, d) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'carrusel-b ' + clase;
+    b.setAttribute('aria-label', `${texto} de ${c.dataset.nombre}`);
+    b.innerHTML = `<svg class="i"><use href="#${icono}"/></svg>`;
+    b.addEventListener('click', () => ir(actual() + d));
+    return b;
+  };
+  const ant = boton('ant', 'i-izq', 'Captura anterior', -1);
+  const sig = boton('sig', 'i-der', 'Captura siguiente', 1);
+  const n = document.createElement('span');
+  n.className = 'carrusel-n';
+  const pintar = () => {
+    const i = actual();
+    n.textContent = `${i + 1} / ${total}`;
+    ant.disabled = i === 0;
+    sig.disabled = i === total - 1;
+  };
+  pista.addEventListener('scroll', pintar, { passive: true });
+  addEventListener('resize', pintar, { passive: true });
+  pista.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      ir(actual() + (e.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+  c.append(ant, sig, n);
+  pintar();
+});
+
+/* Aparición al hacer scroll */
+const aparecer = new IntersectionObserver(entradas => {
+  entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { rootMargin: '0px 0px -40px 0px', threshold: .05 });
+/* Se reinicia solo cuando ya salió por completo de la pantalla, para que no se vea desaparecer */
+const reiniciar = new IntersectionObserver(entradas => {
+  entradas.forEach(e => { if (!e.isIntersecting) e.target.classList.remove('visible'); });
+});
+$$('.encabezado, .destacado, .tarjeta, .caso-texto, .caso-fotos, .nosotros-fotos, .nosotros-texto, .lista-servicios li, .contacto-texto, .formulario')
+  .forEach(el => { el.classList.add('aparece'); aparecer.observe(el); reiniciar.observe(el); });
+
+/* Formulario: valida y abre el correo del visitante */
+const formulario = $('#formulario');
+const reglas = {
+  nombre: v => v.trim() ? '' : 'Escribe tu nombre.',
+  correo: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Revisa tu correo; debe verse como nombre@correo.com.',
+  mensaje: v => v.trim() ? '' : 'Cuéntame en qué te puedo ayudar.',
+};
+function validar(campo) {
+  const msg = reglas[campo.name](campo.value);
+  const error = $('#e-' + campo.name);
+  error.textContent = msg;
+  campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  if (msg) campo.setAttribute('aria-describedby', error.id); else campo.removeAttribute('aria-describedby');
+  return !msg;
+}
+$$('input, textarea', formulario).forEach(c => c.addEventListener('blur', () => { if (c.value) validar(c); }));
+formulario.addEventListener('submit', e => {
+  e.preventDefault();
+  const campos = $$('input, textarea', formulario);
+  const malos = campos.filter(c => !validar(c));
+  if (malos.length) { malos[0].focus(); return; }
+  const d = new FormData(formulario);
+  const asunto = encodeURIComponent(`Nuevo mensaje de ${d.get('nombre')} desde el portafolio`);
+  const cuerpo = encodeURIComponent(`Nombre: ${d.get('nombre')}\nCorreo: ${d.get('correo')}\n\nMensaje:\n${d.get('mensaje')}`);
+  location.href = `mailto:coroneljoseantonio06@gmail.com?subject=${asunto}&body=${cuerpo}`;
 });

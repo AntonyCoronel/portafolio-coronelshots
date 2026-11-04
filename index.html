@@ -1,443 +1,420 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoronelShots | Photography & Development</title>
-    <meta name="description" content="Portafolio profesional de CoronelShots. Fotografía y Desarrollo de Software.">
-    <!-- Google Fonts: Montserrat (Elegante para títulos) e Inter (Limpia para textos) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoronelShots | Fotografía, video y software en Oaxaca</title>
+<meta name="description" content="Portafolio de José Antonio Coronel: fotografía social, retrato y producto, video para redes y desarrollo de software, desde Oaxaca.">
+<meta name="theme-color" content="#12100d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CoronelShots | Fotografía, video y software">
+<meta property="og:description" content="Capturando momentos, construyendo soluciones. Portafolio de José Antonio Coronel, en Oaxaca.">
+<meta property="og:image" content="https://antonycoronel.github.io/portafolio-coronelshots/img/og.jpg">
+<meta property="og:url" content="https://antonycoronel.github.io/portafolio-coronelshots/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Geist+Mono:wght@400;500&family=Geist:wght@300..600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero/boda-confeti.webp">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 
-    <!-- Navegación -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo" style="display: flex; align-items: center; gap: 10px;">
-                <!-- Incrementé el tamaño de la imagen -->
-                <img src="logo.png" alt="CoronelShots Logo" style="height: 80px;">
-                <span>CORONEL<span style="font-weight: 300;">SHOTS</span></span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
+<svg width="0" height="0" class="sprite" aria-hidden="true">
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-externo" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-izq" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-der" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-sonido" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10H4zM16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></symbol>
+  <symbol id="i-mudo" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10H4zM17 10l4 4M21 10l-4 4"/></symbol>
+</svg>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-content fade-in">
-            <h1>Capturando momentos, <br> construyendo soluciones.</h1>
-            <p>La evolución del mundo digital ahora la puedes controlar tú.</p>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn btn-primary">Ver nuestro trabajo</a>
-                <a href="#contact" class="btn btn-outline">Contáctanos</a>
-            </div>
-        </div>
-    </header>
+<header class="nav" id="nav">
+  <a href="#inicio" class="marca" aria-label="CoronelShots, ir al inicio">
+    <img src="img/logo.webp" alt="" width="360" height="533">
+    <span>Coronel<i>Shots</i></span>
+  </a>
+  <button class="nav-boton" id="navBoton" aria-expanded="false" aria-controls="navLinks"><span>Menú</span></button>
+  <nav id="navLinks" aria-label="Principal">
+    <a href="#fotografia">Fotografía</a>
+    <a href="#video">Video</a>
+    <a href="#software">Software</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto" class="nav-cta">Contacto</a>
+  </nav>
+</header>
 
-    <!-- Nosotros -->
-    <section id="about" class="section">
-        <div class="container fade-in">
-            <h2 class="section-title">Nosotros</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>CoronelShots</strong>, fundado por <strong>José Antonio Coronel Martínez</strong>, nace
-                        de la unión de dos mundos aparentemente distintos pero profundamente complementarios: el arte
-                        visual de la fotografía y la lógica estructurada del desarrollo de software.</p>
-                    <p>En el <strong>ámbito del desarrollo</strong>, nos enfocamos en construir código limpio, eficiente
-                        y soluciones escalables que resuelvan problemas reales. En el <strong>ámbito
-                            fotográfico</strong>, buscamos capturar la esencia, la luz y la emoción de cada momento,
-                        creando imágenes que cuenten una historia.</p>
-                    <p>Esta combinación única nos permite abordar cada proyecto tecnológico con un agudo sentido de la
-                        estética y el diseño, y afrontar cada sesión fotográfica con una planificación técnica y
-                        meticulosa. Nuestro objetivo principal siempre es entregar resultados excepcionales.</p>
-                </div>
-                <div class="about-image" style="flex: 1; min-height: 400px;">
-                    <img src="perfil.JPG" alt="José Antonio Coronel - CoronelShots"
-                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 15px 30px rgba(92, 75, 51, 0.15);">
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="contenido">
 
-    <!-- Habilidades -->
-    <section id="skills" class="section bg-light">
-        <div class="container fade-in">
-            <h2 class="section-title">Tecnologías y Herramientas</h2>
-            <div class="skills-grid">
-
-                <div class="skills-category">
-                    <h3><i class="fas fa-code"></i> Desarrollo de Software</h3>
-                    <div class="tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">C</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Vue</span>
-                        <span class="tag">Vite</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3><i class="fas fa-camera-retro"></i> Fotografía y Edición</h3>
-                    <div class="tags">
-                        <span class="tag">Adobe Lightroom</span>
-                        <span class="tag">Adobe Photoshop</span>
-                        <span class="tag">Adobe Premiere</span>
-                        <span class="tag">CapCut</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Portafolio -->
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Nuestro Trabajo</h2>
-
-            <!-- Controles para alternar vista -->
-            <div class="portfolio-tabs fade-in">
-                <button class="tab-btn active" data-target="photo">Fotografía</button>
-                <button class="tab-btn" data-target="dev">Desarrollo</button>
-            </div>
-
-            <!-- Galería de Fotografía (Categorías) -->
-            <div class="portfolio-gallery fade-in visible" id="gallery-photo">
-                <div class="photo-categories-grid">
-
-                    <div class="category-card" onclick="openModal('social')">
-                        <div class="category-img-placeholder" style="padding: 0;">
-                            <img src="fotos/social/portada.jpg" alt="Fotografía Social"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="category-info">
-                            <h3>Social</h3>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="openModal('retrato')">
-                        <div class="category-img-placeholder" style="padding: 0;">
-                            <img src="fotos/retrato/portada.jpg" alt="Fotografía de Retrato"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="category-info">
-                            <h3>Retrato</h3>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="openModal('producto')">
-                        <div class="category-img-placeholder" style="padding: 0;">
-                            <img src="fotos/producto/portada.jpg" alt="Fotografía de Producto"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="category-info">
-                            <h3>Producto</h3>
-                        </div>
-                    </div>
-
-                    <div class="category-card" onclick="openModal('especial')">
-                        <div class="category-img-placeholder" style="padding: 0;">
-                            <img src="fotos/especial/portada.jpg" alt="Proyectos Especiales"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="category-info">
-                            <h3>Especial</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Galería de Desarrollo de Software (Tarjetas) -->
-            <div class="portfolio-gallery hidden" id="gallery-dev">
-                <div class="projects-grid">
-
-                    <div class="project-card">
-                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
-                            <img src="proyectos/proyecto1.jpg" alt="Gestor del Ciclo Menstrual"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-info">
-                            <h3>MiAn</h3>
-                            <p>Aplicación diseñada en Vue.js para ayudar a las usuarias a monitorear su ciclo menstrual
-                                con predicciones y métricas de salud detalladas.</p>
-                            <div class="project-tech">
-                                <span>Vue.js</span><span>JavaScript</span><span>HTML/CSS</span><span>SQL</span>
-                            </div>
-                            <div class="project-links" style="margin-top: 15px;">
-                                <a href="https://mi-an.vercel.app" target="_blank"
-                                    style="color: var(--accent); font-weight: 600; text-decoration: none;"><i
-                                        class="fas fa-external-link-alt"></i> Link al proyecto</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
-                            <img src="proyectos/proyecto2.jpg" alt="MoneyGestor"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-info">
-                            <h3>MoneyGestor</h3>
-                            <p>Progressive Web App (PWA) desarrollada para llevar un control eficiente de los gastos y
-                                préstamos dentro del hogar, permitiendo un acceso rápido desde cualquier dispositivo.
-                            </p>
-                            <div class="project-tech">
-                                <span>Vue 3</span><span>Vite</span><span>PWA</span><span>SQL</span>
-                            </div>
-                            <div class="project-links" style="margin-top: 15px;">
-                                <a href="https://money-gestor.vercel.app" target="_blank"
-                                    style="color: var(--accent); font-weight: 600; text-decoration: none;"><i
-                                        class="fas fa-external-link-alt"></i> Ver Proyecto</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-img" style="height: 220px; overflow: hidden; background-color: #DCD6CA;">
-                            <img src="proyectos/proyecto3.jpg" alt="Análisis de Datos"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-info">
-                            <h3>Análisis de Datos Financieros</h3>
-                            <p>Plataforma multiplataforma desarrollada para un fondo de inversión, diseñada para el
-                                análisis complejo de datos financieros y optimización en la toma de decisiones.</p>
-                            <div class="project-tech">
-                                <span>Python</span><span>SQL</span><span>Vue</span><span>Flutter</span><span>JavaScript</span><span>HTML/CSS</span>
-                            </div>
-                            <div class="project-links" style="margin-top: 15px;">
-                                <span style="color: var(--text-secondary); font-weight: 600;"><i
-                                        class="fas fa-lock"></i> Proyecto Privado</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Beneficios / Presencia Digital -->
-    <section id="benefits" class="section bg-light">
-        <div class="container fade-in">
-            <h2 class="section-title">El Valor de la Digitalización</h2>
-            <p class="benefits-subtitle">En el mundo actual, si tu negocio no está en internet, estás perdiendo
-                clientes. Una presencia digital profesional ya no es un lujo, es una necesidad.</p>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Presencia 24/7</h3>
-                    <p>Una página web es tu sucursal abierta todo el año. Permite que tus clientes te encuentren en
-                        Google, conozcan tus servicios y te contacten en cualquier momento del día.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Software a Medida</h3>
-                    <p>Un sistema de software propio automatiza tareas, reduce errores humanos y optimiza las ventas de
-                        tu negocio. Te permite enfocarte en hacer crecer tu empresa.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-camera-retro"></i>
-                    <h3>Imagen de Confianza</h3>
-                    <p>Las personas compran con los ojos. Fotografías de alta calidad de tus productos o servicios
-                        transmiten profesionalismo y te diferencian de tu competencia al instante.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contact" class="section">
-        <div class="container fade-in">
-            <h2 class="section-title">Contacto</h2>
-            <p class="contact-subtitle">¿Tienes un proyecto de software en mente o requieres una sesión fotográfica?
-                ¡Contáctanos y hagámoslo realidad!</p>
-
-            <div class="contact-wrapper">
-                <!-- Información de contacto -->
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Correo Electrónico</h4>
-                            <a href="mailto:coroneljoseantonio06@gmail.com">coroneljoseantonio06@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>Teléfono / WhatsApp</h4>
-                            <a href="https://wa.me/529514616417" target="_blank">951 461 6417</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <a href="https://instagram.com/coronelshots06" target="_blank">@coronelshots06</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Formulario (Usando JavaScript para abrir tu cliente de correo) -->
-                <form class="contact-form" id="contactForm">
-                    <input type="text" id="form-name" placeholder="Tu Nombre" required>
-                    <input type="email" id="form-email" placeholder="Tu Correo" required>
-                    <textarea id="form-message" rows="5" placeholder="¿En qué te puedo ayudar?" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="#home" class="footer-logo"
-                style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="CoronelShots Logo" style="height: 90px; margin: 0 auto; display: block;">
-                <span>CORONEL<span style="font-weight: 300;">SHOTS</span></span>
-            </a>
-            <p>&copy; <span id="year"></span> José Antonio Coronel. Todos los derechos reservados.</p>
-            <div class="footer-socials">
-                <a href="https://instagram.com/coronelshots06" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:coroneljoseantonio06@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://wa.me/529514616417" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal para Carruseles de Fotos -->
-    <div id="photoModal" class="modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-
-            <!-- Carrusel Social -->
-            <div id="carousel-social" class="carousel-container hidden">
-                <div class="carousel-slide active"><img src="fotos/social/portada.jpg" alt="Social Portada"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/1.jpg" alt="Social 1"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/2.jpg" alt="Social 2"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/3.jpg" alt="Social 3"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/4.jpg" alt="Social 4"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/5.jpg" alt="Social 5"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/social/6.jpg" alt="Social 6"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <a class="prev" onclick="changeSlide(-1, 'social')">&#10094;</a>
-                <a class="next" onclick="changeSlide(1, 'social')">&#10095;</a>
-            </div>
-
-            <!-- Carrusel Retrato -->
-            <div id="carousel-retrato" class="carousel-container hidden">
-                <div class="carousel-slide active"><img src="fotos/retrato/portada.jpg" alt="Retrato Portada"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/1.jpg" alt="Retrato 1"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/2.jpg" alt="Retrato 2"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/3.jpg" alt="Retrato 3"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/4.jpg" alt="Retrato 4"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/5.jpg" alt="Retrato 5"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/retrato/6.jpg" alt="Retrato 6"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <a class="prev" onclick="changeSlide(-1, 'retrato')">&#10094;</a>
-                <a class="next" onclick="changeSlide(1, 'retrato')">&#10095;</a>
-            </div>
-
-            <!-- Carrusel Producto -->
-            <div id="carousel-producto" class="carousel-container hidden">
-                <div class="carousel-slide active">
-                    <img src="fotos/producto/portada.jpg" alt="Producto Portada"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/1.jpg" alt="Producto 1"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/2.jpg" alt="Producto 2"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/3.jpg" alt="Producto 3"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/4.jpg" alt="Producto 4"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/5.jpg" alt="Producto 5"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="fotos/producto/6.jpg" alt="Producto 6"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                </div>
-                <a class="prev" onclick="changeSlide(-1, 'producto')">&#10094;</a>
-                <a class="next" onclick="changeSlide(1, 'producto')">&#10095;</a>
-            </div>
-
-            <!-- Carrusel Especial -->
-            <div id="carousel-especial" class="carousel-container hidden">
-                <div class="carousel-slide active"><img src="fotos/especial/portada.jpg" alt="Especial Portada"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/1.jpg" alt="Especial 1"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/2.jpg" alt="Especial 2"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/3.jpg" alt="Especial 3"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/4.jpg" alt="Especial 4"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/5.jpg" alt="Especial 5"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <div class="carousel-slide"><img src="fotos/especial/6.jpg" alt="Especial 6"
-                        style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
-                <a class="prev" onclick="changeSlide(-1, 'especial')">&#10094;</a>
-                <a class="next" onclick="changeSlide(1, 'especial')">&#10095;</a>
-            </div>
-
-        </div>
+<section class="hero" id="inicio">
+  <div class="hero-fotos" id="heroFotos" aria-hidden="true">
+    <img class="activa" src="img/hero/boda-confeti.webp" alt="" data-pie="Boda, primer baile bajo el confeti">
+    <img src="img/hero/patio-arcos.webp" alt="" loading="lazy" data-pie="Patio colonial visto hacia el cielo">
+    <img src="img/hero/boda-mesa.webp" alt="" loading="lazy" data-pie="Boda, centro de mesa">
+  </div>
+  <div class="hero-texto">
+    <h1>Capturando momentos, <em>construyendo soluciones.</em></h1>
+    <div class="hero-pie">
+      <p>Fotografía, video y software desde Oaxaca.</p>
+      <div class="hero-acciones">
+        <a href="#fotografia" class="boton">Ver el trabajo <svg class="i"><use href="#i-flecha"/></svg></a>
+        <a href="https://wa.me/529514616417" class="enlace" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
     </div>
+  </div>
+  <p class="hero-dato" id="heroDato">Boda, primer baile bajo el confeti</p>
+</section>
 
-    <script src="script.js"></script>
+<section class="seccion" id="fotografia">
+  <div class="encabezado">
+    <h2>Fotografía</h2>
+    <p>Fiestas, retratos, comida y producto. Al ampliar una foto ves el ajuste real con el que se tomó.</p>
+  </div>
+  <div class="filtros" role="group" aria-label="Filtrar fotos por categoría" id="filtros">
+    <button data-cat="todo" aria-pressed="true">Todo</button>
+    <button data-cat="social" aria-pressed="false">Social</button>
+    <button data-cat="retrato" aria-pressed="false">Retrato</button>
+    <button data-cat="producto" aria-pressed="false">Producto</button>
+    <button data-cat="especial" aria-pressed="false">Especial</button>
+  </div>
+  <div class="galeria" id="galeria"></div>
+  <button class="boton secundario" id="verMas" type="button" hidden></button>
+  <noscript><p>La galería necesita JavaScript. También puedes ver el trabajo en <a href="https://instagram.com/coronelshots06">@coronelshots06</a>.</p></noscript>
+</section>
+
+<section class="caso" id="mayka">
+  <div class="caso-texto">
+    <h2>Fundación Mayka: <em>foto, video y web</em> para una misma causa</h2>
+    <p>Aquí se juntan las dos cosas que hago. Cubrí la vida diaria de la Estancia Donají en Villa de Zaachila, las calendas en la Catedral y sus visitas a la radio; edité los videos de entrevistas y armé una propuesta de sitio web usando esas mismas fotos.</p>
+    <ul class="datos">
+      <li><span>Foto</span> Estancia, calendas y radio</li>
+      <li><span>Video</span> Entrevistas, promocionales y cápsula de radio</li>
+      <li><span>Web</span> Maqueta en HTML, CSS y JavaScript</li>
+    </ul>
+    <a class="enlace" href="https://antonycoronel.github.io/MaykaPagWeb/" target="_blank" rel="noopener">Ver la maqueta del sitio <svg class="i"><use href="#i-externo"/></svg></a>
+  </div>
+  <div class="caso-fotos">
+    <img class="c1" src="img/mayka/catedral.webp" alt="Calenda de Fundación Mayka frente a la Catedral de Oaxaca" loading="lazy" width="1050" height="1400">
+    <img class="c2" src="img/mayka/e-manos.webp" alt="Manos de una residente con un tazón azul de fruta picada" loading="lazy" width="1400" height="788">
+    <img class="c3" src="img/mayka/radio-8106.webp" alt="Equipo de Fundación Mayka en una cabina de radio" loading="lazy" width="1400" height="933">
+    <img class="c4" src="img/mayka/e-presion.webp" alt="Toma de presión a una residente de la estancia" loading="lazy" width="1400" height="788">
+  </div>
+</section>
+
+<section class="seccion" id="video">
+  <div class="encabezado">
+    <h2>Video</h2>
+    <p>Promocionales verticales para negocios, carreras y organizaciones. Grabación y edición. Estos son fragmentos de 7 segundos; las piezas completas te las comparto por mensaje.</p>
+  </div>
+  <div class="tira" id="tira" tabindex="0" aria-label="Fragmentos de video, desliza para ver más">
+    <figure class="clip" data-video="carrera"><figcaption><strong>Carrera atlética</strong><span>Toma aérea y resumen</span></figcaption></figure>
+    <figure class="clip" data-video="salud"><figcaption><strong>Salud a Domicilio</strong><span>Promocional</span></figcaption></figure>
+    <figure class="clip" data-video="entrevistas"><figcaption><strong>Fundación Mayka</strong><span>Entrevistas</span></figcaption></figure>
+    <figure class="clip" data-video="sanjuanito"><figcaption><strong>Hospital San Juanito</strong><span>Promocional</span></figcaption></figure>
+    <figure class="clip" data-video="matus"><figcaption><strong>Carrera, 18 de octubre</strong><span>Invitación para redes</span></figcaption></figure>
+    <figure class="clip" data-video="repuestos"><figcaption><strong>Repuestos México</strong><span>Promocional</span></figcaption></figure>
+    <figure class="clip" data-video="radio"><figcaption><strong>Mayka en la radio</strong><span>Cápsula</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="seccion" id="software">
+  <div class="encabezado">
+    <h2>Software</h2>
+    <p>Apps, juegos y análisis de datos. Unos los hice por mi cuenta y otros con mi equipo; cada uno lo indica.</p>
+  </div>
+
+  <article class="destacado">
+    <div class="pantalla"><div class="carrusel" data-nombre="SingLink">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de SingLink, desliza para ver más">
+        <img src="img/software/singlink-1.webp" alt="Inicio de SingLink con las opciones Práctica, Interpretación y Juegos" loading="lazy" width="1440" height="900">
+        <img src="img/software/singlink-2.webp" alt="Práctica de SingLink: alfabeto y lista de señas para buscar" loading="lazy" width="1440" height="900">
+        <img src="img/software/singlink-3.webp" alt="Interpretación en vivo de SingLink, con la cámara y las señas reconocidas" loading="lazy" width="1440" height="900">
+        <img src="img/software/singlink-4.webp" alt="Juegos de SingLink: completa la palabra, carrera de letras, Wordle y Simón dice" loading="lazy" width="1440" height="900">
+      </div>
+    </div></div>
+    <div class="destacado-texto">
+      <h3>SingLink</h3>
+      <p class="quien">En equipo · INDIVISA INGENIUM 2026, La Salle Oaxaca</p>
+      <p>Enseña y traduce Lengua de Señas Mexicana en tiempo real: la cámara lee tus manos, te dice qué corregir y convierte las señas en texto. También funciona con guantes propios con sensores y ESP32.</p>
+      <p class="stack">React · MediaPipe · FastAPI · PyTorch · ESP32</p>
+      <a class="enlace" href="https://github.com/Angel-mtz06/Ingeniumlms" target="_blank" rel="noopener">Código en GitHub <svg class="i"><use href="#i-externo"/></svg></a>
+    </div>
+  </article>
+
+  <article class="destacado invertido">
+    <div class="pantalla"><div class="carrusel" data-nombre="Riesgo de abstención 2027">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Riesgo de abstención 2027, desliza para ver más">
+        <img src="img/software/abstencion-1.webp" alt="Mapa de México con el semáforo de riesgo de abstención por municipio" loading="lazy" width="1440" height="848">
+        <img src="img/software/abstencion-2.webp" alt="Matriz de burbujas: abstención proyectada contra su cambio frente a 2021" loading="lazy" width="1440" height="848">
+        <img src="img/software/abstencion-3.webp" alt="Comparación de escenarios de campaña contra no intervenir" loading="lazy" width="1440" height="848">
+        <img src="img/software/abstencion-4.webp" alt="Ficha de un municipio con su proyección de abstención" loading="lazy" width="1440" height="848">
+      </div>
+    </div></div>
+    <div class="destacado-texto">
+      <h3>Riesgo de abstención 2027</h3>
+      <p class="quien">En equipo, Mecabyte · Hackatón del INE, octubre de 2026</p>
+      <p>Proyecta la abstención de los 2,477 municipios para la elección de 2027, los clasifica en un semáforo y compara escenarios de campaña con presupuesto limitado. Las imágenes son vistas previas con los datos del tablero.</p>
+      <p class="stack">Python · Jupyter · Power BI · GeoJSON</p>
+    </div>
+  </article>
+
+  <article class="destacado">
+    <div class="pantalla"><div class="carrusel" data-nombre="Interfaz">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Interfaz, desliza para ver más">
+        <img src="img/software/interfaz-1.webp" alt="La plaza del pueblo en 3D con papel picado, jacarandas y el quiosco" loading="lazy" width="1440" height="900">
+        <img src="img/software/interfaz-2.webp" alt="Pantalla de inicio de Interfaz: elegir entre jugar a tu ritmo o en equipo" loading="lazy" width="1440" height="900">
+        <img src="img/software/interfaz-3.webp" alt="El panel del barrio de Saludos y presentaciones sobre el pueblo" loading="lazy" width="1440" height="900">
+        <img src="img/software/interfaz-4.webp" alt="Misión del mercado: tocar la palabra nueva entre frutas en 3D" loading="lazy" width="1440" height="900">
+        <img src="img/software/interfaz-5.webp" alt="Reto de Presentarte: saltar a la plataforma con la respuesta correcta" loading="lazy" width="1440" height="900">
+      </div>
+    </div></div>
+    <div class="destacado-texto">
+      <h3>Interfaz</h3>
+      <p class="quien">En equipo</p>
+      <p>Juego en 3D para aprender español nivel A1. Cada mundo es un barrio de un pueblo que recorres caminando, con misiones como comprar en el mercado y un modo multijugador por sala.</p>
+      <p class="stack">Angular · Three.js · FastAPI</p>
+    </div>
+  </article>
+
+  <article class="destacado invertido">
+    <div class="pantalla"><div class="carrusel" data-nombre="Senda">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Senda, desliza para ver más">
+        <img src="img/software/senda-1.webp" alt="Panel de Senda con el avance del usuario" loading="lazy" width="1440" height="900">
+        <img src="img/software/senda-2.webp" alt="Lección de Cisco IOS en Senda con su terminal" loading="lazy" width="1440" height="900">
+        <img src="img/software/senda-3.webp" alt="Selector de lenguajes de Senda: Python, JavaScript, C, C++, Java, Visual Basic, SQL y Cisco IOS" loading="lazy" width="1440" height="900">
+        <img src="img/software/senda-4.webp" alt="Zona de retos de Senda" loading="lazy" width="1440" height="900">
+      </div>
+    </div></div>
+    <div class="destacado-texto">
+      <h3>Senda</h3>
+      <p class="quien">Proyecto personal</p>
+      <p>Juego para aprender a programar que corre tu código de verdad: Python, JavaScript, C, C++, Java, Visual Basic y SQL. Incluye un simulador de Cisco IOS para practicar redes y 128 retos.</p>
+      <p class="stack">JavaScript · Python · SQL · Cisco IOS</p>
+    </div>
+  </article>
+
+  <div class="rejilla">
+    <article class="tarjeta ancha">
+      <div class="carrusel" data-nombre="Diosito">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Diosito, desliza para ver más">
+        <img src="img/software/diosito-1.webp" alt="Pantalla de bienvenida de Diosito con un cielo violeta al atardecer" loading="lazy" width="1440" height="900">
+        <img src="img/software/diosito-2.webp" alt="Calendario mensual de Diosito con las fiestas marcadas" loading="lazy" width="1440" height="900">
+        <img src="img/software/diosito-3.webp" alt="Vista semanal del calendario de Diosito" loading="lazy" width="1440" height="900">
+        <img src="img/software/diosito-4.webp" alt="Vista anual del calendario de Diosito" loading="lazy" width="1440" height="900">
+      </div>
+    </div>
+      <h3>Diosito</h3>
+      <p class="quien">En equipo</p>
+      <p>Calendario judío en español para México, con fiestas, horarios de oración calculados para tu ciudad y recordatorios.</p>
+      <p class="stack">JavaScript · PWA · Vercel</p>
+      <a class="enlace" href="https://diosito.vercel.app" target="_blank" rel="noopener">Abrir <svg class="i"><use href="#i-externo"/></svg></a>
+    </article>
+    <article class="tarjeta telefono">
+      <div class="carrusel" data-nombre="Bolsillo">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Bolsillo, desliza para ver más">
+        <img src="img/software/bolsillo-1.webp" alt="Bolsillo: inicio con el dinero disponible del mes, con datos de ejemplo" loading="lazy" width="520" height="1125">
+        <img src="img/software/bolsillo-2.webp" alt="Bolsillo: gráfica de movimientos por día" loading="lazy" width="520" height="1125">
+        <img src="img/software/bolsillo-3.webp" alt="Bolsillo: secciones con su presupuesto" loading="lazy" width="520" height="1125">
+        <img src="img/software/bolsillo-4.webp" alt="Bolsillo: bienvenida para capturar el saldo inicial" loading="lazy" width="520" height="1125">
+      </div>
+    </div>
+      <div>
+        <h3>Bolsillo</h3>
+        <p class="quien">Personal</p>
+        <p>Control de gastos para el celular: presupuestos por sección, ingresos automáticos y exportación a Excel.</p>
+        <p class="stack">JavaScript · PWA</p>
+        <a class="enlace" href="https://github.com/AntonyCoronel/Bolsillo" target="_blank" rel="noopener">Código <svg class="i"><use href="#i-externo"/></svg></a>
+      </div>
+    </article>
+    <article class="tarjeta telefono">
+      <div class="carrusel" data-nombre="Tareas Escuela">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Tareas Escuela, desliza para ver más">
+        <img src="img/software/tareas-1.webp" alt="Tareas: entregas pendientes de la semana, con datos de ejemplo" loading="lazy" width="520" height="1125">
+        <img src="img/software/tareas-2.webp" alt="Tareas: lista por fechas con la prioridad de cada entrega" loading="lazy" width="520" height="1125">
+        <img src="img/software/tareas-3.webp" alt="Tareas: resumen de la semana con barras por día" loading="lazy" width="520" height="1125">
+      </div>
+    </div>
+      <div>
+        <h3>Tareas Escuela</h3>
+        <p class="quien">Personal</p>
+        <p>App de Android para entregas escolares. La prioridad sube sola conforme se acerca la fecha y te avisa.</p>
+        <p class="stack">JavaScript · Capacitor · Android</p>
+      </div>
+    </article>
+    <article class="tarjeta ancha">
+      <div class="carrusel" data-nombre="Aventura en Pareja">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Aventura en Pareja, desliza para ver más">
+        <img src="img/software/aventura-1.webp" alt="Pantalla de título de Aventura en Pareja en pixel art" loading="lazy" width="1280" height="800">
+        <img src="img/software/aventura-2.webp" alt="Editor de personaje con las cuatro clases" loading="lazy" width="1280" height="800">
+        <img src="img/software/aventura-3.webp" alt="El personaje frente a su casa en el mundo del juego" loading="lazy" width="1280" height="800">
+        <img src="img/software/aventura-4.webp" alt="Mapa del mundo con sus zonas conectadas" loading="lazy" width="1280" height="800">
+      </div>
+    </div>
+      <h3>Aventura en Pareja</h3>
+      <p class="quien">Personal</p>
+      <p>RPG cooperativo en pixel art para dos personas, cada una en su dispositivo, con cuatro clases y mapa del mundo.</p>
+      <p class="stack">TypeScript · WebSockets · Capacitor</p>
+    </article>
+    <article class="tarjeta">
+      <div class="carrusel" data-nombre="MiAn">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de MiAn, desliza para ver más">
+        <img src="img/software/mian-1.webp" alt="MiAn: selector de estado de ánimo" loading="lazy" width="980" height="676">
+        <img src="img/software/mian-2.webp" alt="MiAn: pantalla para iniciar sesión" loading="lazy" width="1100" height="688">
+      </div>
+    </div>
+      <h3>MiAn</h3>
+      <p>Seguimiento del ciclo menstrual, con predicciones y métricas de salud.</p>
+      <p class="stack">Vue.js · SQL</p>
+      <a class="enlace" href="https://mi-an.vercel.app" target="_blank" rel="noopener">Abrir <svg class="i"><use href="#i-externo"/></svg></a>
+    </article>
+    <article class="tarjeta">
+      <div class="carrusel" data-nombre="MoneyGestor">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de MoneyGestor, desliza para ver más">
+        <img src="img/software/moneygestor-1.webp" alt="MoneyGestor: resumen mensual de saldo" loading="lazy" width="1200" height="620">
+        <img src="img/software/moneygestor-2.webp" alt="MoneyGestor: pantalla para iniciar sesión" loading="lazy" width="1200" height="750">
+      </div>
+    </div>
+      <h3>MoneyGestor</h3>
+      <p>Gastos y préstamos del hogar, disponible desde cualquier dispositivo.</p>
+      <p class="stack">Vue 3 · Vite · PWA · SQL</p>
+      <a class="enlace" href="https://money-gestor.vercel.app" target="_blank" rel="noopener">Abrir <svg class="i"><use href="#i-externo"/></svg></a>
+    </article>
+    <article class="tarjeta">
+      <img src="img/software/fondo-1.webp" alt="Plataforma de análisis financiero: consulta individual y escaneo de mercado" loading="lazy" width="1200" height="607">
+      <h3>Análisis de datos financieros</h3>
+      <p>Plataforma para un fondo de inversión. Proyecto privado.</p>
+      <p class="stack">Python · SQL · Vue · Flutter</p>
+    </article>
+    <article class="tarjeta">
+      <div class="carrusel" data-nombre="Investigación de Operaciones">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Investigación de Operaciones, desliza para ver más">
+        <img src="img/software/operaciones-1.webp" alt="Método gráfico: región factible y sus vértices" loading="lazy" width="1200" height="750">
+        <img src="img/software/operaciones-2.webp" alt="Método Simplex: tablas por iteración e interpretación del resultado" loading="lazy" width="1200" height="750">
+        <img src="img/software/operaciones-3.webp" alt="Método Húngaro: la matriz de costos paso a paso" loading="lazy" width="1200" height="750">
+        <img src="img/software/operaciones-4.webp" alt="Cadenas de Markov: transiciones y vector estacionario" loading="lazy" width="1200" height="750">
+        <img src="img/software/operaciones-5.webp" alt="Ruta más corta: el grafo resaltado y la tabla de Dijkstra" loading="lazy" width="1200" height="750">
+      </div>
+    </div>
+      <h3>Investigación de Operaciones</h3>
+      <p>Calculadora con los métodos gráfico, Simplex, Húngaro, Markov y ruta más corta, con su procedimiento paso a paso.</p>
+      <p class="stack">JavaScript · Tailwind</p>
+      <a class="enlace" href="https://antonycoronel.github.io/Ordi_io/" target="_blank" rel="noopener">Abrir <svg class="i"><use href="#i-externo"/></svg></a>
+    </article>
+    <article class="tarjeta">
+      <div class="carrusel" data-nombre="Antigravos">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Antigravos, desliza para ver más">
+        <img src="img/software/antigravos-1.webp" alt="¿Qué es una Raspberry Pi?: la placa y sus ventajas" loading="lazy" width="1200" height="750">
+        <img src="img/software/antigravos-2.webp" alt="El rezago educativo en México y Oaxaca, con sus indicadores" loading="lazy" width="1200" height="750">
+        <img src="img/software/antigravos-3.webp" alt="Arquitectura del sistema: programas y uso de memoria" loading="lazy" width="1200" height="750">
+        <img src="img/software/antigravos-4.webp" alt="Programas incorporados que funcionan sin internet" loading="lazy" width="1200" height="750">
+        <img src="img/software/antigravos-5.webp" alt="Comandos básicos de la terminal" loading="lazy" width="1200" height="750">
+      </div>
+    </div>
+      <h3>Antigravos</h3>
+      <p>Propuesta para reducir la brecha digital con computadoras Raspberry Pi y programas sin internet.</p>
+      <p class="stack">HTML · CSS · JavaScript</p>
+      <a class="enlace" href="https://antonycoronel.github.io/OrdiSistemasO/" target="_blank" rel="noopener">Abrir <svg class="i"><use href="#i-externo"/></svg></a>
+    </article>
+    <article class="tarjeta">
+      <div class="carrusel" data-nombre="Xcuidi">
+      <div class="carrusel-pista" tabindex="0" role="group" aria-label="Capturas de Xcuidi, desliza para ver más">
+        <img src="img/software/xcuidi-1.webp" alt="Pantalla de inicio de Xcuidi en un bosque ilustrado" loading="lazy" width="1200" height="664">
+        <img src="img/software/xcuidi-2.webp" alt="Mapa de aprendizaje de Xcuidi: PC, mouse, teclado, archivos, herramientas e internet" loading="lazy" width="1200" height="750">
+        <img src="img/software/xcuidi-3.webp" alt="Minijuego de alebrijes con selector de dificultad" loading="lazy" width="1200" height="675">
+        <img src="img/software/xcuidi-4.webp" alt="Minijuego de Xcuidi sobre un mosaico oaxaqueño" loading="lazy" width="1200" height="750">
+      </div>
+    </div>
+      <h3>Xcuidi</h3>
+      <p class="quien">En equipo · CLIDi 2026 · Ya está en Oaxaca Emprende</p>
+      <p>Estaciones de computación educativa, de bajo costo y sin internet, para comunidades de Oaxaca: una Raspberry Pi y un juego que enseña.</p>
+      <p class="stack">Godot · Raspberry Pi</p>
+    </article>
+  </div>
+</section>
+
+<section class="seccion nosotros" id="nosotros">
+  <div class="nosotros-fotos">
+    <img src="img/sobre/perfil.webp" alt="Retrato de José Antonio Coronel de traje azul" loading="lazy" width="763" height="1091">
+  </div>
+  <div class="nosotros-texto">
+    <h2>Nosotros</h2>
+    <p><strong>CoronelShots</strong>, fundado por <strong>José Antonio Coronel Martínez</strong>, une dos mundos que se complementan: el arte visual de la fotografía y la lógica del desarrollo de software.</p>
+    <p>Cada proyecto de software lleva ojo para la estética y el diseño. Cada sesión de fotos lleva la planeación técnica de quien programa.</p>
+    <dl class="herramientas">
+      <div><dt>Edición</dt><dd>Lightroom, Photoshop, Premiere, CapCut</dd></div>
+      <div><dt>Web y apps</dt><dd>HTML, CSS, JavaScript, TypeScript, React, Vue, Angular, Vite, Three.js, Capacitor</dd></div>
+      <div><dt>Backend y datos</dt><dd>Python, FastAPI, NestJS, SQL, PyTorch, Power BI</dd></div>
+      <div><dt>Otros lenguajes</dt><dd>Java, C, C++, Visual Basic, Godot</dd></div>
+      <div><dt>Redes</dt><dd>Cisco IOS, Packet Tracer</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="seccion servicios" id="servicios">
+  <div class="encabezado">
+    <h2>Si tu negocio no está en internet, estás perdiendo clientes</h2>
+  </div>
+  <ol class="lista-servicios">
+    <li><h3>Página web</h3><p>Tu sucursal abierta todo el año. Tus clientes te encuentran en Google, conocen tus servicios y te contactan a cualquier hora.</p></li>
+    <li><h3>Software a medida</h3><p>Un sistema propio automatiza tareas, reduce errores y te deja tiempo para hacer crecer tu negocio.</p></li>
+    <li><h3>Fotografía de producto y comida</h3><p>Las personas compran con los ojos. Fotos de calidad transmiten profesionalismo y te distinguen de tu competencia.</p></li>
+    <li><h3>Eventos y retratos</h3><p>XV años, bodas, graduaciones y sesiones personales, con entrega editada.</p></li>
+    <li><h3>Video para redes</h3><p>Promocionales verticales, entrevistas y cobertura de eventos, de la grabación a la edición.</p></li>
+  </ol>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="contacto-texto">
+    <h2>¿Tienes un proyecto o <em>una sesión en mente?</em></h2>
+    <ul class="canales">
+      <li><span>WhatsApp</span><a href="https://wa.me/529514616417" target="_blank" rel="noopener">951 461 6417</a></li>
+      <li><span>Correo</span><a href="mailto:coroneljoseantonio06@gmail.com">coroneljoseantonio06@gmail.com</a></li>
+      <li><span>Instagram</span><a href="https://instagram.com/coronelshots06" target="_blank" rel="noopener">@coronelshots06</a></li>
+    </ul>
+  </div>
+  <form class="formulario" id="formulario" novalidate>
+    <div class="campo">
+      <label for="f-nombre">Tu nombre</label>
+      <input id="f-nombre" name="nombre" autocomplete="name" required>
+      <p class="error" id="e-nombre"></p>
+    </div>
+    <div class="campo">
+      <label for="f-correo">Tu correo</label>
+      <input id="f-correo" name="correo" type="email" autocomplete="email" required>
+      <p class="error" id="e-correo"></p>
+    </div>
+    <div class="campo">
+      <label for="f-mensaje">¿En qué te puedo ayudar?</label>
+      <textarea id="f-mensaje" name="mensaje" rows="4" required></textarea>
+      <p class="error" id="e-mensaje"></p>
+    </div>
+    <button class="boton" type="submit">Preparar correo <svg class="i"><use href="#i-flecha"/></svg></button>
+    <p class="nota">Se abrirá tu app de correo con el mensaje listo para enviar.</p>
+  </form>
+</section>
+
+</main>
+
+<footer class="pie">
+  <img src="img/logo.webp" alt="" width="360" height="533" loading="lazy">
+  <p>&copy; <span id="anio">2026</span> José Antonio Coronel. Todos los derechos reservados.</p>
+  <a href="#inicio">Volver arriba</a>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Foto ampliada">
+  <button class="visor-b cerrar" id="vCerrar" aria-label="Cerrar"><svg class="i"><use href="#i-cerrar"/></svg></button>
+  <button class="visor-b ant" id="vAnt" aria-label="Foto anterior"><svg class="i"><use href="#i-izq"/></svg></button>
+  <figure>
+    <figcaption><span id="vAlt"></span><span id="vExif" class="stack"></span></figcaption>
+  </figure>
+  <button class="visor-b sig" id="vSig" aria-label="Foto siguiente"><svg class="i"><use href="#i-der"/></svg></button>
+</dialog>
+
+<script src="galeria-datos.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
