@@ -10,9 +10,9 @@
   --oro-claro: #e8cd97;
   --linea: rgba(241, 235, 223, .14);
   --sombra: 0 24px 60px -24px rgba(0, 0, 0, .75);
-  --display: 'Bodoni Moda', 'Didot', Georgia, serif;
-  --cuerpo: 'Geist', system-ui, -apple-system, sans-serif;
-  --mono: 'Geist Mono', ui-monospace, Menlo, monospace;
+  --display: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  --cuerpo: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --mono: 'DM Mono', ui-monospace, Menlo, monospace;
   --ancho: 1360px;
   --margen: max(clamp(16px, 4vw, 56px), env(safe-area-inset-left), env(safe-area-inset-right));
   --suavizado: cubic-bezier(.2, .7, .2, 1);
@@ -40,7 +40,6 @@ h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
 h1, h2 {
   font-family: var(--display);
-  font-variation-settings: 'opsz' 26;
   font-weight: 500;
   letter-spacing: -.02em;
   line-height: 1.04;
@@ -90,7 +89,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .nav.fija { background: rgba(18, 16, 13, .86); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--linea); padding-block: calc(8px + env(safe-area-inset-top)) 8px; }
 .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .marca img { width: 30px; height: auto; }
-.marca span { font-variation-settings: 'opsz' 18; font-family: var(--display); font-size: 1.3rem; font-weight: 500; letter-spacing: .005em; }
+.marca span { font-family: var(--display); font-size: 1.3rem; font-weight: 500; letter-spacing: .005em; }
 .marca i { color: var(--oro-claro); font-weight: 400; }
 .nav nav { display: flex; align-items: center; gap: clamp(16px, 2.2vw, 34px); }
 .nav nav a { position: relative; font-size: .9375rem; font-weight: 400; text-decoration: none; padding: 6px 0; text-shadow: 0 1px 10px rgba(0,0,0,.4); }
@@ -204,7 +203,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .destacado.invertido .pantalla { order: 2; }
 .pantalla { overflow: hidden; border-radius: 6px; box-shadow: var(--sombra), 0 0 0 1px var(--linea); background: var(--fondo-3); }
 .destacado-texto { display: grid; gap: 12px; justify-items: start; }
-.destacado-texto h3, .lista-servicios h3 { font-variation-settings: 'opsz' 22; }
 .destacado-texto h3 { font-family: var(--display); font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.08; }
 .destacado-texto p:not(.quien):not(.stack) { color: var(--suave); }
 .rejilla { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(30px, 3vw, 44px) clamp(14px, 1.8vw, 26px); margin-top: clamp(44px, 6vw, 80px); padding-top: clamp(36px, 5vw, 64px); border-top: 1px solid var(--linea); }
