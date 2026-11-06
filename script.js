@@ -7,7 +7,16 @@ $('#anio').textContent = new Date().getFullYear();
 /* Navegación */
 const nav = $('#nav');
 const navBoton = $('#navBoton');
-const marcarNav = () => nav.classList.toggle('fija', scrollY > 40);
+const enCelular = matchMedia('(max-width: 760px)');
+let ultimoY = scrollY;
+const marcarNav = () => {
+  nav.classList.toggle('fija', scrollY > 40);
+  /* En el celular la barra se esconde al bajar y regresa al subir, para dejarle la pantalla a las fotos */
+  const d = scrollY - ultimoY;
+  if (Math.abs(d) < 8) return;
+  nav.classList.toggle('oculta', enCelular.matches && d > 0 && scrollY > 300);
+  ultimoY = scrollY;
+};
 addEventListener('scroll', marcarNav, { passive: true });
 marcarNav();
 
@@ -60,10 +69,13 @@ function pintarGaleria(cat, completa = false) {
   verMas.hidden = visibles.length === todas.length;
   verMas.textContent = `Ver las ${todas.length} fotos`;
   galeria.innerHTML = '';
+  let desdeGrande = 8;
   visibles.forEach((f, i) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'foto';
+    /* En el celular, cada tanto una foto horizontal ocupa todo el ancho y rompe las dos columnas */
+    if (f.w > f.h * 1.2 && desdeGrande >= 8) { b.classList.add('grande'); desdeGrande = 0; } else desdeGrande++;
     b.style.setProperty('--ar', (f.w / f.h).toFixed(3));
     b.setAttribute('aria-label', 'Ampliar: ' + f.alt);
     const img = new Image();
@@ -208,8 +220,10 @@ if (!sinMovimiento && !ahorro) {
 $$('.carrusel').forEach(c => {
   const pista = $('.carrusel-pista', c);
   const total = pista.children.length;
-  const actual = () => Math.round(pista.scrollLeft / (pista.clientWidth || 1));
-  const ir = i => pista.scrollTo({ left: i * pista.clientWidth, behavior: sinMovimiento ? 'auto' : 'smooth' });
+  /* Paso real entre capturas: en el celular cada una deja asomar la siguiente */
+  const paso = () => (pista.children[1].offsetLeft - pista.children[0].offsetLeft) || pista.clientWidth || 1;
+  const actual = () => Math.round(pista.scrollLeft / paso());
+  const ir = i => pista.scrollTo({ left: i * paso(), behavior: sinMovimiento ? 'auto' : 'smooth' });
   const boton = (clase, icono, texto, d) => {
     const b = document.createElement('button');
     b.type = 'button';
@@ -239,6 +253,18 @@ $$('.carrusel').forEach(c => {
   });
   c.append(ant, sig, n);
   pintar();
+});
+
+/* En el celular los proyectos menores se abren con un botón, igual que la galería */
+const rejilla = $('.rejilla');
+const verProyectos = $('#verProyectos');
+const tarjetas = $$('.tarjeta', rejilla);
+rejilla.classList.add('plegada');
+verProyectos.textContent = `Ver ${tarjetas.length - 3} proyectos más`;
+verProyectos.addEventListener('click', () => {
+  rejilla.classList.remove('plegada');
+  tarjetas[3].tabIndex = -1;
+  tarjetas[3].focus({ preventScroll: true });
 });
 
 /* Aparición al hacer scroll */

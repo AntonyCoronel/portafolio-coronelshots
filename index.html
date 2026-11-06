@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CoronelShots | Fotografía, video y software en Oaxaca</title>
 <meta name="description" content="Portafolio de José Antonio Coronel: fotografía social, retrato y producto, video para redes y desarrollo de software, desde Oaxaca.">
 <meta name="theme-color" content="#12100d">
@@ -17,7 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Geist+Mono:wght@400;500&family=Geist:wght@300..600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero/boda-confeti.webp">
+<link rel="preload" as="image" href="img/hero/boda-confeti-m.webp" media="(max-width: 760px) and (orientation: portrait)">
+<link rel="preload" as="image" href="img/hero/boda-confeti.webp" media="(min-width: 761px), (orientation: landscape)">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,9 +53,9 @@
 
 <section class="hero" id="inicio">
   <div class="hero-fotos" id="heroFotos" aria-hidden="true">
-    <img class="activa" src="img/hero/boda-confeti.webp" alt="" data-pie="Boda, primer baile bajo el confeti">
-    <img src="img/hero/patio-arcos.webp" alt="" loading="lazy" data-pie="Patio colonial visto hacia el cielo">
-    <img src="img/hero/boda-mesa.webp" alt="" loading="lazy" data-pie="Boda, centro de mesa">
+    <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="img/hero/boda-confeti-m.webp"><img class="activa" src="img/hero/boda-confeti.webp" alt="" data-pie="Boda, primer baile bajo el confeti"></picture>
+    <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="img/hero/patio-arcos-m.webp"><img src="img/hero/patio-arcos.webp" alt="" loading="lazy" data-pie="Patio colonial visto hacia el cielo"></picture>
+    <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="img/hero/boda-mesa-m.webp"><img src="img/hero/boda-mesa.webp" alt="" loading="lazy" data-pie="Boda, centro de mesa"></picture>
   </div>
   <div class="hero-texto">
     <h1>Capturando momentos, <em>construyendo soluciones.</em></h1>
@@ -334,6 +335,7 @@
       <p class="stack">Godot · Raspberry Pi</p>
     </article>
   </div>
+  <button class="boton secundario" id="verProyectos" type="button"></button>
 </section>
 
 <section class="seccion nosotros" id="nosotros">
